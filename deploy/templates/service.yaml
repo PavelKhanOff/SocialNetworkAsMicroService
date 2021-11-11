@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: feed-service
+  namespace: default
+spec:
+  selector:
+    pod: feed
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 7000
+    targetPort: 7000
+    nodePort: 30004

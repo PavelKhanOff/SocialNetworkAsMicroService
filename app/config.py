@@ -1,0 +1,88 @@
+import os
+
+
+# MIDDLEWARE_CONFIG
+MIDDLEWARE_HOST = os.environ.get("MIDDLEWARE_HOST", "middleware-service")
+MIDDLEWARE_PORT = os.environ.get("MIDDLEWARE_PORT", 6000)
+PROTOCOL = 'http'
+URL_CHECK_USER = os.environ.get("URL_CHECK_USER", 'middleware/check_user')
+URL_CHECK_COURSE = os.environ.get("URL_CHECK_COURSE", 'middleware/check_course')
+URL_CHECK_LESSON = os.environ.get("URL_CHECK_LESSON", 'middleware/check_lesson')
+URL_CHECK_HOMEWORK = os.environ.get("URL_CHECK_HOMEWORK", 'middleware/check_homework')
+GET_USERS_FOLLOWINGS = os.environ.get(
+    "GET_USERS_FOLLOWINGS", 'middleware/get_users_follows'
+)
+GET_USERS_FOLLOWERS = os.environ.get(
+    "GET_USERS_FOLLOWERS", 'middleware/get_users_followers'
+)
+CHECK_ACHIEVEMENTS = os.environ.get(
+    "CHECK_ACHIEVEMENTS", 'middleware/check_achievements'
+)
+GET_COURSE_OBJ = os.environ.get("GET_COURSE_OBJ", 'middleware/get_course_obj')
+GET_USER_OBJ = os.environ.get("GET_USER_OBJ", 'middleware/get_user_obj')
+SEND_NOTIFICATIONS = os.environ.get("SEND_NOTIFICATIONS", 'middleware/send_notifications')
+GET_SUPERUSER_TOKEN = os.environ.get("SEND_NOTIFICATIONS", 'middleware/get_superuser_token')
+MIDDLEWARE_URL_CHECK_USER = (
+    f'{PROTOCOL}://{MIDDLEWARE_HOST}:{MIDDLEWARE_PORT}/{URL_CHECK_USER}'
+)
+MIDDLEWARE_URL_CHECK_COURSE = (
+    f'{PROTOCOL}://{MIDDLEWARE_HOST}:{MIDDLEWARE_PORT}/{URL_CHECK_COURSE}'
+)
+MIDDLEWARE_URL_CHECK_LESSON = (
+    f'{PROTOCOL}://{MIDDLEWARE_HOST}:{MIDDLEWARE_PORT}/{URL_CHECK_LESSON}'
+)
+MIDDLEWARE_URL_CHECK_HOMEWORK = (
+    f'{PROTOCOL}://{MIDDLEWARE_HOST}:{MIDDLEWARE_PORT}/{URL_CHECK_HOMEWORK}'
+)
+MIDDLEWARE_URL_GET_USERS_FOLLOWINGS = (
+    f'{PROTOCOL}://{MIDDLEWARE_HOST}:{MIDDLEWARE_PORT}/{GET_USERS_FOLLOWINGS}'
+)
+MIDDLEWARE_URL_GET_USERS_FOLLOWERS = (
+    f'{PROTOCOL}://{MIDDLEWARE_HOST}:{MIDDLEWARE_PORT}/{GET_USERS_FOLLOWERS}'
+)
+MIDDLEWARE_URL_CHECK_ACHIEVEMENTS = (
+    f'{PROTOCOL}://{MIDDLEWARE_HOST}:{MIDDLEWARE_PORT}/{CHECK_ACHIEVEMENTS}'
+)
+MIDDLEWARE_URL_GET_COURSE_OBJ = (
+    f'{PROTOCOL}://{MIDDLEWARE_HOST}:{MIDDLEWARE_PORT}/{GET_COURSE_OBJ}'
+)
+MIDDLEWARE_URL_GET_USER_OBJ = (
+    f'{PROTOCOL}://{MIDDLEWARE_HOST}:{MIDDLEWARE_PORT}/{GET_USER_OBJ}'
+)
+MIDDLEWARE_URL_SEND_NOTIFICATIONS = (
+    f'{PROTOCOL}://{MIDDLEWARE_HOST}:{MIDDLEWARE_PORT}/{SEND_NOTIFICATIONS}'
+)
+MIDDLEWARE_GET_SUPERUSER_TOKEN = (
+    f'{PROTOCOL}://{MIDDLEWARE_HOST}:{MIDDLEWARE_PORT}/{GET_SUPERUSER_TOKEN}'
+)
+
+# POSTGRES_CONFIG
+DB_ENGINE = os.environ.get('DB_ENGINE', 'postgresql+asyncpg')
+POSTGRES_USER = os.environ.get('POSTGRES_USER', 'admin')
+POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD', 'LOYAg3Wv')
+POSTGRES_HOST = os.environ.get('POSTGRES_HOST', 'db_feed')
+POSTGRES_PORT = os.environ.get('POSTGRES_PORT', '5432')
+POSTGRES_DB = os.environ.get('POSTGRES_DB', 'eduonepostgresdbfeed')
+SQLALCHEMY_DATABASE_URL = (
+    f"{DB_ENGINE}://{POSTGRES_USER}:"
+    f"{POSTGRES_PASSWORD}@{POSTGRES_HOST}:"
+    f"{POSTGRES_PORT}/"
+    f"{POSTGRES_DB}"
+)
+
+# ElasticSearch
+ELASTIC_HOST = os.environ.get("ELASTIC_HOST", "elasticsearch")
+ELASTIC_PORT = os.environ.get("ELASTIC_PORT", 9200)
+
+
+# JWT CONFIG
+SECRET = os.environ.get('JWTSECRET', 'SOMESECRET')
+
+
+# Celery Settings
+REDIS_HOST = os.environ.get("REDIS_HOST", 'redis')
+REDIS_PORT = os.environ.get("REDIS_PORT", '6379')
+REDIS_PASSWORD = os.environ.get("REDIS_PASSWORD", 'secrett')
+
+CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL')
+CELERY_BACKEND_URL = f"redis://:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}/0"
