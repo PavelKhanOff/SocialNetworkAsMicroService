@@ -1,2 +1,2 @@
 # SocialNetworkAsMicroService
-Small social network used as micoservise with OnlineEducation
+Small social network used as micoservice with OnlineEducation
